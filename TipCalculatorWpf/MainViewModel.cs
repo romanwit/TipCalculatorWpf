@@ -13,7 +13,7 @@ namespace TipCalculatorWpf
     {
         public ObservableCollection<TipRecord> Records { get; } = new ObservableCollection<TipRecord>();
 
-        public decimal TotalAmount => Records.Sum(record => record.Amount);
+        public decimal TotalAmount => Records.Sum(record => record.Total);
 
         public ICommand AddRecordCommand { get; }
 
