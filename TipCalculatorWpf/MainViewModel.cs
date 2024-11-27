@@ -11,7 +11,7 @@ namespace TipCalculatorWpf
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<TipRecord> Records { get; } = new ObservableCollection<TipRecord>();
+        public BindingList<TipRecord> Records { get; } = new BindingList<TipRecord>();
 
         public decimal TotalAmount => Records.Sum(record => record.Total);
 
@@ -20,7 +20,10 @@ namespace TipCalculatorWpf
         public MainViewModel()
         {
             AddRecordCommand = new RelayCommand(AddRecord);
-            Records.CollectionChanged += (s, e) => OnPropertyChanged(nameof(TotalAmount));
+            Records.ListChanged += (s, e) =>
+            {
+                OnPropertyChanged(nameof(TotalAmount));
+            };
         }
 
         private void AddRecord()
