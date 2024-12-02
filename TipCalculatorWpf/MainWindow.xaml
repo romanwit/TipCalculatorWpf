@@ -57,7 +57,7 @@
             </DataGrid>
         </materialDesign:Card>
         <materialDesign:Card>
-            <TextBlock Text="{Binding TotalAmount, StringFormat='Total Amount: {0:N2}'}" FontWeight="Bold" HorizontalAlignment="Right"/>
+            <TextBlock x:Name="TotalSum" Text="{Binding TotalAmount, StringFormat='Total Amount: {0:N2}'}" FontWeight="Bold" HorizontalAlignment="Right"/>
         </materialDesign:Card>
     </StackPanel>
 </Window>

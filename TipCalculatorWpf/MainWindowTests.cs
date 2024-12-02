@@ -129,15 +129,16 @@ namespace TipCalculatorWpf.Tests
         {
             await _mainWindow.Dispatcher.InvokeAsync(() =>
             {
-                var card = VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(_mainWindow, 0), 0), 0), 0), 2);
+                
+                TextBlock totalSum = LogicalTreeHelper.FindLogicalNode(_mainWindow, "TotalSum") as TextBlock;
                 var viewModel = _mainWindow.DataContext as MainViewModel;
 
-                Assert.That(card != null);
+                Assert.That(totalSum != null);
                 Assert.That(viewModel != null);
 
                 viewModel.Records.Add(new TipRecord { Amount = 200, Tip = 20 });
 
-                Assert.That(card.ToString().Contains("240.00"));
+                Assert.That(totalSum.Text.Contains("240.00"));
             });
         }
 
