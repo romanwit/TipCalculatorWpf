@@ -20,3 +20,4 @@ MainWindowTests are most complicated, because app is being loaded here for the t
 
 1. Because tests are accessing visual tree, they need to wait until it will be loaded. So ManualResetEvent is waiting until Set() will be called in the _mainWindow_Loaded handler. 
 2. All interactions with UI can be made only in the same STA thread. So this thread is being started at Setup of the tests, and each test uses Dispatcher to access exactly same thread in async/await manner.
+3. Initialization of GUI for tests ignores usual project settings, so references for Materialize are added manually.
