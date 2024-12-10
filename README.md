@@ -1,3 +1,4 @@
+![version](https://img.shields.io/badge/1.0.0-MVP)
 ## **Tip Calculator**
 
 This application is developed for splitting tips when you got non-separated bill for the whole company.
