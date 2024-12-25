@@ -10,7 +10,14 @@
     
     <StackPanel Margin="10">
         <materialDesign:Card>
-            <Button Content="Add Record" Command="{Binding AddRecordCommand}" Margin="0,0,0,10"/>
+            <Button  Width="50" Height="50" Background="#2196F3" BorderThickness="0" Command="{Binding AddRecordCommand}">
+                <Button.Content>
+                    <Grid>
+                        <Rectangle Fill="White" Width="30" Height="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <Rectangle Fill="White" Width="4" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button.Content>
+            </Button>
         </materialDesign:Card>
 
         <materialDesign:Card>
