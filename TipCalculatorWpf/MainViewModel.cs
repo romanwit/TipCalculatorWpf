@@ -16,10 +16,12 @@ namespace TipCalculatorWpf
         public decimal TotalAmount => Records.Sum(record => record.Total);
 
         public ICommand AddRecordCommand { get; }
+        public ICommand RemoveRecordCommand { get; }
 
         public MainViewModel()
         {
             AddRecordCommand = new RelayCommand(AddRecord);
+            RemoveRecordCommand = new RelayCommand(parameter => RemoveRecord(parameter as TipRecord));
             Records.ListChanged += (s, e) =>
             {
                 OnPropertyChanged(nameof(TotalAmount));
@@ -29,6 +31,13 @@ namespace TipCalculatorWpf
         private void AddRecord()
         {
             Records.Add(new TipRecord());
+            OnPropertyChanged(nameof(TotalAmount));
+        }
+
+        private void RemoveRecord(TipRecord record)
+        {
+            if (record == null) return;
+            Records.Remove(record);
             OnPropertyChanged(nameof(TotalAmount));
         }
 

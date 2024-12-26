@@ -62,7 +62,9 @@
                     <DataGridTemplateColumn Header="Action">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button  Width="50" Height="50" Background="#2196F3" BorderThickness="0" Command="{Binding AddRecordCommand}">
+                                <Button  Width="50" Height="50" Background="#2196F3" BorderThickness="0" 
+                                         Command="{Binding DataContext.RemoveRecordCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                         CommandParameter="{Binding}">
                                     <Button.Content>
                                         <Grid>
                                             <Rectangle Fill="White" Width="20" Height="4" 
